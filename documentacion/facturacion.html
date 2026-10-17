@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Facturación y Cobranza - CNSB Lab</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        brand: {
+                            50: '#f0f9ff',
+                            100: '#e0f2fe',
+                            400: '#38bdf8',
+                            500: '#0ea5e9',
+                            600: '#0284c7',
+                            900: '#0c4a6e',
+                        }
+                    },
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                    }
+                }
+            }
+        }
+    </script>
+</head>
+
+<body class="bg-gray-50 text-gray-800 font-sans antialiased relative">
+    <div class="flex h-screen overflow-hidden">
+
+    <!-- 1. El contenedor donde se cargará el aside -->
+    <div id="aside-container"></div>
+
+    <!-- Contenido del resto de tu página... -->
+
+    <!-- 2. El script que hace la magia -->
+    <script>
+      fetch('aside.html')
+        .then(response => response.text())
+        .then(data => {
+          document.getElementById('aside-container').innerHTML = data;
+        })
+        .catch(error => console.error('Error al cargar el aside:', error));
+    </script>
+        <!-- Main Content Area -->
+        <main class="flex-1 flex flex-col overflow-hidden relative">
+
+            <!-- Top Header -->
+            <header
+                class="h-16 bg-white border-b border-gray-100 flex items-center justify-between px-6 shrink-0 z-10 shadow-sm">
+                <div class="flex items-center">
+                    <button class="text-gray-500 hover:text-gray-700 focus:outline-none lg:hidden">
+                        <i class="fa-solid fa-bars text-xl"></i>
+                    </button>
+                    <h1 class="ml-4 text-xl font-bold text-gray-800 tracking-tight">Facturación y Cobranza</h1>
+                </div>
+                <div class="flex items-center space-x-4">
+                    <button class="text-gray-400 hover:text-brand-600 transition-colors relative">
+                        <i class="fa-regular fa-bell text-xl"></i>
+                        <span class="absolute top-0 right-0 -mt-1 -mr-1 flex h-3 w-3">
+                            <span
+                                class="animate-ping absolute inline-flex h-full w-full rounded-full bg-red-400 opacity-75"></span>
+                            <span class="relative inline-flex rounded-full h-3 w-3 bg-red-500"></span>
+                        </span>
+                    </button>
+                    <div class="h-6 w-px bg-gray-200 mx-2"></div>
+                    <div class="flex items-center">
+                        <div
+                            class="w-8 h-8 rounded-full bg-brand-50 border border-brand-100 flex items-center justify-center text-brand-700 font-bold text-sm mr-2">
+                            DM</div>
+                        <span class="text-sm font-medium text-gray-700 hidden md:block">Deiver Martínez</span>
+                    </div>
+                    <a href="index.html" class="text-gray-400 hover:text-red-500 transition-colors ml-4"
+                        title="Cerrar Sesión">
+                        <i class="fa-solid fa-arrow-right-from-bracket text-xl"></i>
+                    </a>
+                </div>
+            </header>
+
+            <!-- Scrollable Content -->
+            <div class="flex-1 overflow-y-auto p-6 relative z-0">
+
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-6 mb-6">
+                    <div class="bg-white rounded-xl shadow-sm border border-gray-100 p-5 border-l-4 border-l-brand-500">
+                        <p class="text-sm text-gray-500 font-medium mb-1">Total Facturado (Mes)</p>
+                        <h3 class="text-2xl font-bold text-gray-800">$ 4,250.00</h3>
+                    </div>
+                    <div class="bg-white rounded-xl shadow-sm border border-gray-100 p-5 border-l-4 border-l-amber-500">
+                        <p class="text-sm text-gray-500 font-medium mb-1">Cuentas por Cobrar</p>
+                        <h3 class="text-2xl font-bold text-gray-800">$ 840.00</h3>
+                    </div>
+                    <div class="bg-white rounded-xl shadow-sm border border-gray-100 p-5 border-l-4 border-l-green-500">
+                        <p class="text-sm text-gray-500 font-medium mb-1">Tasa BCV (Hoy)</p>
+                        <h3 class="text-2xl font-bold text-gray-800">Bs. 36.54</h3>
+                    </div>
+                </div>
+
+                <div class="bg-white rounded-xl shadow-sm border border-gray-100 overflow-hidden">
+                    <div class="flex justify-between items-center p-4 border-b border-gray-100">
+                        <h3 class="font-bold text-gray-700">Documentos Emitidos</h3>
+                    </div>
+                    <div class="overflow-x-auto">
+                        <table class="w-full whitespace-nowrap text-left text-sm">
+                            <thead class="bg-gray-50 text-gray-600">
+                                <tr>
+                                    <th class="px-6 py-4 font-semibold border-b border-gray-200">N° Control</th>
+                                    <th class="px-6 py-4 font-semibold border-b border-gray-200">Clínica (Sede)</th>
+                                    <th class="px-6 py-4 font-semibold border-b border-gray-200">Fecha Emisión</th>
+                                    <th class="px-6 py-4 font-semibold border-b border-gray-200 text-right">Total ($)
+                                    </th>
+                                    <th class="px-6 py-4 font-semibold border-b border-gray-200 text-center">Estatus
+                                    </th>
+                                </tr>
+                            </thead>
+                            <tbody class="divide-y divide-gray-100">
+                                <tr class="hover:bg-gray-50 transition-colors">
+                                    <td class="px-6 py-4 font-mono font-medium text-gray-900">0000142</td>
+                                    <td class="px-6 py-4">
+                                        <div class="font-medium text-gray-800">Clínica Sonrisas C.A.</div>
+                                    </td>
+                                    <td class="px-6 py-4 text-gray-500">01 Oct 2026</td>
+                                    <td class="px-6 py-4 font-mono font-medium text-right text-gray-800">180.00</td>
+                                    <td class="px-6 py-4 text-center">
+                                        <span
+                                            class="inline-flex items-center px-2 py-0.5 rounded text-xs font-medium bg-green-100 text-green-800">PAGADO</span>
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+
+            </div>
+        </main>
+    </div>
+
+    <script>
+        function openModal(modalId) {
+            document.getElementById(modalId).classList.remove('hidden');
+        }
+
+        function closeModal(modalId) {
+            document.getElementById(modalId).classList.add('hidden');
+        }
+    </script>
+
+</body>
+
+</html>

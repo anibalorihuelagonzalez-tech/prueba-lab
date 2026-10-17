@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Clínicas y Sedes - CNSB Lab</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        brand: {
+                            50: '#f0f9ff',
+                            100: '#e0f2fe',
+                            400: '#38bdf8',
+                            500: '#0ea5e9',
+                            600: '#0284c7',
+                            900: '#0c4a6e',
+                        }
+                    },
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                    }
+                }
+            }
+        }
+    </script>
+</head>
+<body class="bg-gray-50 text-gray-800 font-sans antialiased relative">
+    <div class="flex h-screen overflow-hidden">
+        
+        <!-- Sidebar Navigation -->
+        <aside class="w-64 bg-white border-r border-gray-200 flex flex-col transition-all duration-300 shrink-0 z-20">
+    <div class="flex items-center justify-center h-16 border-b border-gray-100 shrink-0">
+        <i class="fa-solid fa-tooth text-2xl mr-3 text-brand-600"></i>
+        <span class="text-lg font-bold tracking-tight text-gray-900">CNSB LAB</span>
+    </div>
+    <nav class="flex-1 overflow-y-auto py-4">
+        <ul class="space-y-1">
+            <li>
+                <a href="ordenes.html" class="flex items-center px-6 py-2.5 mx-4 rounded-lg transition-colors text-gray-600 hover:bg-gray-50 hover:text-gray-900 font-medium border-l-4 border-transparent">
+                    <i class="fa-solid fa-clipboard-list w-5 mr-3 text-gray-400"></i> Órdenes de Trabajo
+                </a>
+            </li>
+            <li>
+                <a href="envios.html" class="flex items-center px-6 py-2.5 mx-4 rounded-lg transition-colors text-gray-600 hover:bg-gray-50 hover:text-gray-900 font-medium border-l-4 border-transparent">
+                    <i class="fa-solid fa-truck-fast w-5 mr-3 text-gray-400"></i> Control de Envíos
+                </a>
+            </li>
+            <li class="pt-5 pb-2 px-8 text-[10px] font-bold text-gray-400 uppercase tracking-widest">DIRECTORIOS</li>
+            <li>
+                <a href="clinicas.html" class="flex items-center px-6 py-2.5 mx-4 rounded-lg transition-colors bg-brand-50 text-brand-700 font-medium border-l-4 border-brand-500">
+                    <i class="fa-solid fa-hospital w-5 mr-3 text-brand-600"></i> Clínicas y Sedes
+                </a>
+            </li>
+            <li>
+                <a href="pacientes.html" class="flex items-center px-6 py-2.5 mx-4 rounded-lg transition-colors text-gray-600 hover:bg-gray-50 hover:text-gray-900 font-medium border-l-4 border-transparent">
+                    <i class="fa-solid fa-users w-5 mr-3 text-gray-400"></i> Pacientes
+                </a>
+            </li>
+            <li>
+                <a href="servicios.html" class="flex items-center px-6 py-2.5 mx-4 rounded-lg transition-colors text-gray-600 hover:bg-gray-50 hover:text-gray-900 font-medium border-l-4 border-transparent">
+                    <i class="fa-solid fa-list-check w-5 mr-3 text-gray-400"></i> Servicios y Tarifas
+                </a>
+            </li>
+            <li class="pt-5 pb-2 px-8 text-[10px] font-bold text-gray-400 uppercase tracking-widest">ADMINISTRACIÓN</li>
+            <li>
+                <a href="facturacion.html" class="flex items-center px-6 py-2.5 mx-4 rounded-lg transition-colors text-gray-600 hover:bg-gray-50 hover:text-gray-900 font-medium border-l-4 border-transparent">
+                    <i class="fa-solid fa-file-invoice-dollar w-5 mr-3 text-gray-400"></i> Facturación
+                </a>
+            </li>
+        </ul>
+    </nav>
+</aside>
+
+        <!-- Main Content Area -->
+        <main class="flex-1 flex flex-col overflow-hidden relative">
+            
+            <!-- Top Header -->
+            <header class="h-16 bg-white border-b border-gray-100 flex items-center justify-between px-6 shrink-0 z-10 shadow-sm">
+    <div class="flex items-center">
+        <button class="text-gray-500 hover:text-gray-700 focus:outline-none lg:hidden">
+            <i class="fa-solid fa-bars text-xl"></i>
+        </button>
+        <h1 class="ml-4 text-xl font-bold text-gray-800 tracking-tight">Clínicas y Sedes</h1>
+    </div>
+    <div class="flex items-center space-x-4">
+        <button class="text-gray-400 hover:text-brand-600 transition-colors relative">
+            <i class="fa-regular fa-bell text-xl"></i>
+            <span class="absolute top-0 right-0 -mt-1 -mr-1 flex h-3 w-3">
+                <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-red-400 opacity-75"></span>
+                <span class="relative inline-flex rounded-full h-3 w-3 bg-red-500"></span>
+            </span>
+        </button>
+        <div class="h-6 w-px bg-gray-200 mx-2"></div>
+        <div class="flex items-center">
+            <div class="w-8 h-8 rounded-full bg-brand-50 border border-brand-100 flex items-center justify-center text-brand-700 font-bold text-sm mr-2">DM</div>
+            <span class="text-sm font-medium text-gray-700 hidden md:block">Deiver Martínez</span>
+        </div>
+        <a href="index.html" class="text-gray-400 hover:text-red-500 transition-colors ml-4" title="Cerrar Sesión">
+            <i class="fa-solid fa-arrow-right-from-bracket text-xl"></i>
+        </a>
+    </div>
+</header>
+
+            <!-- Scrollable Content -->
+            <div class="flex-1 overflow-y-auto p-6 relative z-0">
+                
+<div class="flex flex-col md:flex-row justify-between items-start md:items-center mb-6 space-y-4 md:space-y-0">
+    <div class="relative w-full md:w-96">
+        <span class="absolute inset-y-0 left-0 flex items-center pl-3 text-gray-400"><i class="fa-solid fa-magnifying-glass"></i></span>
+        <input type="text" class="w-full border border-gray-300 rounded-lg pl-10 pr-4 py-2 focus:outline-none focus:ring-2 focus:ring-brand-500 focus:border-transparent" placeholder="Buscar por RIF o Nombre...">
+    </div>
+    <button onclick="openModal('modalClinica')" class="bg-gray-900 hover:bg-gray-800 text-white px-5 py-2 rounded-lg shadow-sm font-medium transition-colors flex items-center">
+        <i class="fa-solid fa-plus mr-2"></i> Nueva Clínica
+    </button>
+</div>
+
+<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+    <div class="bg-white rounded-xl shadow-sm border border-gray-100 p-6 flex flex-col">
+        <div class="flex justify-between items-start mb-4">
+            <div>
+                <h3 class="text-lg font-bold text-gray-800">Clínica Sonrisas C.A.</h3>
+                <p class="text-sm text-gray-500 font-mono mt-1">J-40123456-8</p>
+            </div>
+            <button class="text-gray-400 hover:text-gray-600"><i class="fa-solid fa-ellipsis-vertical"></i></button>
+        </div>
+        <div class="flex-1 text-sm text-gray-600 space-y-2 mb-4">
+            <p><i class="fa-solid fa-map-location-dot w-5 text-center text-gray-400"></i> Av. Francisco de Miranda, Edif. Centro</p>
+            <p><i class="fa-solid fa-phone w-5 text-center text-gray-400"></i> 0212-5551234</p>
+        </div>
+        <div class="border-t border-gray-100 pt-4 mt-auto">
+            <div class="flex justify-between items-center text-sm">
+                <span class="text-gray-500"><i class="fa-solid fa-building mr-1"></i> 3 Sedes registradas</span>
+                <button class="text-brand-600 hover:text-brand-800 font-medium">Ver Sedes</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Modal: Nueva Clínica -->
+<div id="modalClinica" class="fixed inset-0 z-50 hidden">
+    <div class="absolute inset-0 bg-gray-900/50 backdrop-blur-sm" onclick="closeModal('modalClinica')"></div>
+    <div class="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 bg-white rounded-xl shadow-2xl w-full max-w-lg max-h-[90vh] overflow-y-auto">
+        <div class="flex justify-between items-center p-6 border-b border-gray-100">
+            <h2 class="text-xl font-bold text-gray-800">Registrar Clínica</h2>
+            <button onclick="closeModal('modalClinica')" class="text-gray-400 hover:text-gray-600"><i class="fa-solid fa-xmark text-xl"></i></button>
+        </div>
+        <div class="p-6">
+            <form class="space-y-4">
+                <div>
+                    <label class="block text-sm font-medium text-gray-700 mb-1">Razón Social</label>
+                    <input type="text" class="w-full border border-gray-300 rounded-lg p-2.5 focus:ring-2 focus:ring-brand-500 focus:outline-none" placeholder="Nombre de la empresa">
+                </div>
+                <div class="grid grid-cols-2 gap-4">
+                    <div>
+                        <label class="block text-sm font-medium text-gray-700 mb-1">Documento (RIF)</label>
+                        <div class="flex">
+                            <select class="border border-gray-300 rounded-l-lg p-2.5 bg-gray-50 focus:ring-2 focus:ring-brand-500"><option>J</option><option>V</option><option>E</option></select>
+                            <input type="text" class="flex-1 border-t border-b border-r border-gray-300 rounded-r-lg p-2.5 focus:outline-none" placeholder="123456789">
+                        </div>
+                    </div>
+                    <div>
+                        <label class="block text-sm font-medium text-gray-700 mb-1">Teléfono Principal</label>
+                        <input type="text" class="w-full border border-gray-300 rounded-lg p-2.5 focus:ring-2 focus:ring-brand-500 focus:outline-none" placeholder="02121234567">
+                    </div>
+                </div>
+                <div>
+                    <label class="block text-sm font-medium text-gray-700 mb-1">Dirección Fiscal</label>
+                    <textarea class="w-full border border-gray-300 rounded-lg p-2.5 focus:ring-2 focus:ring-brand-500 focus:outline-none" rows="2"></textarea>
+                </div>
+            </form>
+        </div>
+        <div class="p-6 border-t border-gray-100 bg-gray-50 flex justify-end space-x-3 rounded-b-xl">
+            <button onclick="closeModal('modalClinica')" class="px-4 py-2 border border-gray-300 text-gray-700 rounded-lg hover:bg-gray-100 transition-colors">Cancelar</button>
+            <button class="px-4 py-2 bg-brand-600 text-white rounded-lg hover:bg-brand-700 transition-colors">Guardar Clínica</button>
+        </div>
+    </div>
+</div>
+
+            </div>
+        </main>
+    </div>
+    
+    <script>
+        function openModal(modalId) {
+            document.getElementById(modalId).classList.remove('hidden');
+        }
+        function closeModal(modalId) {
+            document.getElementById(modalId).classList.add('hidden');
+        }
+    </script>
+    
+</body>
+</html>

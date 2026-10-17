@@ -1,0 +1,47 @@
+Table: SERVICIOS
+Columns: id, categoria_id, correlativo, nombre, rango_min_piezas, rango_max_piezas, precio, activo, fecha_hora_creacion, fecha_hora_actualizacion
+
+Table: CLINICAS
+Columns: id, razon_social, tipo_documento, numero_documento, direccion_fiscal, telefono
+
+Table: CATEGORIAS_SERVICIOS
+Columns: id, nombre, descripcion, fecha_hora_creacion, fecha_hora_actualizacion
+
+Table: ORDENES_TRABAJO
+Columns: id, clinica_id, servicio_id, paciente_id, envio_id, codigo_qr, cantidad_piezas_exacta, estatus_actual, fecha_ingreso, fecha_hora_creacion
+
+Table: HISTORIAL_TRAZABILIDAD
+Columns: id, orden_trabajo_id, orden_detalle_id, usuario_id, estatus, ubicacion, notas, fecha_cambio
+
+Table: PACIENTES
+Columns: id, primer_nombre, segundo_nombre, primer_apellido, segundo_apellido, tipo_documento, numero_documento
+
+Table: ORDENES_DETALLE
+Columns: id, orden_trabajo_id, servicio_id, estatus_produccion
+
+Table: ENVIOS
+Columns: id, estatus_envio, cantidad_casos, codigo_qr, sede_id, direccion_movimiento, fecha_hora_recepcion, fecha_hora_despacho, fecha_hora_creacion
+
+Table: PACIENTES_ODONTOGRAMAS
+Columns: id, paciente_id, diente_numero, estado_diente, observaciones, fecha_registro
+
+Table: SEDES
+Columns: id, clinica_id, nombre, direccion_fisica, latitud, longitud, principal
+
+Table: NUMEROS_TELEFONO
+Columns: id, sede_id, numero_telefono
+
+Table: DOCUMENTOS
+Columns: id, tipo_documento_id, sede_id, numero_control, fecha_hora_emision, monto_subtotal, monto_total, estatos_pago, tasa_cambio
+
+Table: DOCUMENTOS_DETALLES
+Columns: id, documento_id, orden_trabajo_id, descripcion, cantidad, precio_unitario, precio_total
+
+Table: TIPOS_DOCUMENTOS
+Columns: id, nombre
+
+Table: USUARIOS
+Columns: id, primer_nombre, primer_apellido, correo_electronico, fecha_hora_creacion, fecha_hora_actualizacion
+
+Table: ROLES_USUARIOS
+Columns: id, usuario_id, rol, fecha_hora_creacion, fecha_hora_actualizacion

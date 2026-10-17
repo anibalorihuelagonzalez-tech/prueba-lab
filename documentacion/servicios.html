@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Servicios y Tarifas - CNSB Lab</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        brand: {
+                            50: '#f0f9ff',
+                            100: '#e0f2fe',
+                            400: '#38bdf8',
+                            500: '#0ea5e9',
+                            600: '#0284c7',
+                            900: '#0c4a6e',
+                        }
+                    },
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                    }
+                }
+            }
+        }
+    </script>
+</head>
+<body class="bg-gray-50 text-gray-800 font-sans antialiased relative">
+    <div class="flex h-screen overflow-hidden">
+        
+        <!-- Sidebar Navigation -->
+        <aside class="w-64 bg-white border-r border-gray-200 flex flex-col transition-all duration-300 shrink-0 z-20">
+    <div class="flex items-center justify-center h-16 border-b border-gray-100 shrink-0">
+        <i class="fa-solid fa-tooth text-2xl mr-3 text-brand-600"></i>
+        <span class="text-lg font-bold tracking-tight text-gray-900">CNSB LAB</span>
+    </div>
+    <nav class="flex-1 overflow-y-auto py-4">
+        <ul class="space-y-1">
+            <li>
+                <a href="ordenes.html" class="flex items-center px-6 py-2.5 mx-4 rounded-lg transition-colors text-gray-600 hover:bg-gray-50 hover:text-gray-900 font-medium border-l-4 border-transparent">
+                    <i class="fa-solid fa-clipboard-list w-5 mr-3 text-gray-400"></i> Órdenes de Trabajo
+                </a>
+            </li>
+            <li>
+                <a href="envios.html" class="flex items-center px-6 py-2.5 mx-4 rounded-lg transition-colors text-gray-600 hover:bg-gray-50 hover:text-gray-900 font-medium border-l-4 border-transparent">
+                    <i class="fa-solid fa-truck-fast w-5 mr-3 text-gray-400"></i> Control de Envíos
+                </a>
+            </li>
+            <li class="pt-5 pb-2 px-8 text-[10px] font-bold text-gray-400 uppercase tracking-widest">DIRECTORIOS</li>
+            <li>
+                <a href="clinicas.html" class="flex items-center px-6 py-2.5 mx-4 rounded-lg transition-colors text-gray-600 hover:bg-gray-50 hover:text-gray-900 font-medium border-l-4 border-transparent">
+                    <i class="fa-solid fa-hospital w-5 mr-3 text-gray-400"></i> Clínicas y Sedes
+                </a>
+            </li>
+            <li>
+                <a href="pacientes.html" class="flex items-center px-6 py-2.5 mx-4 rounded-lg transition-colors text-gray-600 hover:bg-gray-50 hover:text-gray-900 font-medium border-l-4 border-transparent">
+                    <i class="fa-solid fa-users w-5 mr-3 text-gray-400"></i> Pacientes
+                </a>
+            </li>
+            <li>
+                <a href="servicios.html" class="flex items-center px-6 py-2.5 mx-4 rounded-lg transition-colors bg-brand-50 text-brand-700 font-medium border-l-4 border-brand-500">
+                    <i class="fa-solid fa-list-check w-5 mr-3 text-brand-600"></i> Servicios y Tarifas
+                </a>
+            </li>
+            <li class="pt-5 pb-2 px-8 text-[10px] font-bold text-gray-400 uppercase tracking-widest">ADMINISTRACIÓN</li>
+            <li>
+                <a href="facturacion.html" class="flex items-center px-6 py-2.5 mx-4 rounded-lg transition-colors text-gray-600 hover:bg-gray-50 hover:text-gray-900 font-medium border-l-4 border-transparent">
+                    <i class="fa-solid fa-file-invoice-dollar w-5 mr-3 text-gray-400"></i> Facturación
+                </a>
+            </li>
+        </ul>
+    </nav>
+</aside>
+
+        <!-- Main Content Area -->
+        <main class="flex-1 flex flex-col overflow-hidden relative">
+            
+            <!-- Top Header -->
+            <header class="h-16 bg-white border-b border-gray-100 flex items-center justify-between px-6 shrink-0 z-10 shadow-sm">
+    <div class="flex items-center">
+        <button class="text-gray-500 hover:text-gray-700 focus:outline-none lg:hidden">
+            <i class="fa-solid fa-bars text-xl"></i>
+        </button>
+        <h1 class="ml-4 text-xl font-bold text-gray-800 tracking-tight">Servicios y Tarifas</h1>
+    </div>
+    <div class="flex items-center space-x-4">
+        <button class="text-gray-400 hover:text-brand-600 transition-colors relative">
+            <i class="fa-regular fa-bell text-xl"></i>
+            <span class="absolute top-0 right-0 -mt-1 -mr-1 flex h-3 w-3">
+                <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-red-400 opacity-75"></span>
+                <span class="relative inline-flex rounded-full h-3 w-3 bg-red-500"></span>
+            </span>
+        </button>
+        <div class="h-6 w-px bg-gray-200 mx-2"></div>
+        <div class="flex items-center">
+            <div class="w-8 h-8 rounded-full bg-brand-50 border border-brand-100 flex items-center justify-center text-brand-700 font-bold text-sm mr-2">DM</div>
+            <span class="text-sm font-medium text-gray-700 hidden md:block">Deiver Martínez</span>
+        </div>
+        <a href="index.html" class="text-gray-400 hover:text-red-500 transition-colors ml-4" title="Cerrar Sesión">
+            <i class="fa-solid fa-arrow-right-from-bracket text-xl"></i>
+        </a>
+    </div>
+</header>
+
+            <!-- Scrollable Content -->
+            <div class="flex-1 overflow-y-auto p-6 relative z-0">
+                
+<div class="flex justify-between items-center mb-6">
+    <h2 class="text-lg font-medium text-gray-800">Catálogo de Servicios</h2>
+    <div class="space-x-2">
+        <button onclick="openModal('modalCategoria')" class="bg-white border border-gray-300 text-gray-700 hover:bg-gray-50 px-4 py-2 rounded-lg shadow-sm font-medium transition-colors">
+            <i class="fa-solid fa-folder-plus mr-2"></i> Categoría
+        </button>
+        <button onclick="openModal('modalServicio')" class="bg-gray-900 hover:bg-gray-800 text-white px-5 py-2 rounded-lg shadow-sm font-medium transition-colors">
+            <i class="fa-solid fa-plus mr-2"></i> Servicio
+        </button>
+    </div>
+</div>
+
+<div class="bg-white rounded-xl shadow-sm border border-gray-100 overflow-hidden mb-6">
+    <div class="bg-gray-50 px-6 py-3 border-b border-gray-200 flex justify-between items-center">
+        <h3 class="font-bold text-gray-700"><i class="fa-solid fa-layer-group text-brand-500 mr-2"></i> Prótesis Fija</h3>
+    </div>
+    <div class="overflow-x-auto">
+        <table class="w-full whitespace-nowrap text-left text-sm">
+            <thead class="text-gray-500 border-b border-gray-100">
+                <tr>
+                    <th class="px-6 py-3 font-medium">Servicio</th>
+                    <th class="px-6 py-3 font-medium">Rango Piezas</th>
+                    <th class="px-6 py-3 font-medium">Precio Ref. ($)</th>
+                    <th class="px-6 py-3 font-medium text-center">Estado</th>
+                </tr>
+            </thead>
+            <tbody class="divide-y divide-gray-50">
+                <tr class="hover:bg-gray-50/50">
+                    <td class="px-6 py-3 font-medium text-gray-800">Corona Metal Porcelana</td>
+                    <td class="px-6 py-3 text-gray-600">1 - 14</td>
+                    <td class="px-6 py-3 text-gray-800 font-mono">45.00</td>
+                    <td class="px-6 py-3 text-center"><span class="inline-flex items-center px-2 py-0.5 rounded text-xs font-medium bg-green-100 text-green-800">Activo</span></td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>
+
+<!-- Modal: Categoría -->
+<div id="modalCategoria" class="fixed inset-0 z-50 hidden">
+    <div class="absolute inset-0 bg-gray-900/50 backdrop-blur-sm" onclick="closeModal('modalCategoria')"></div>
+    <div class="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 bg-white rounded-xl shadow-2xl w-full max-w-md">
+        <div class="flex justify-between items-center p-6 border-b border-gray-100">
+            <h2 class="text-xl font-bold text-gray-800">Nueva Categoría</h2>
+            <button onclick="closeModal('modalCategoria')" class="text-gray-400 hover:text-gray-600"><i class="fa-solid fa-xmark"></i></button>
+        </div>
+        <div class="p-6 space-y-4">
+            <div><label class="block text-sm font-medium text-gray-700 mb-1">Nombre</label><input type="text" class="w-full border border-gray-300 rounded p-2.5" placeholder="Ej: Ortodoncia"></div>
+            <div><label class="block text-sm font-medium text-gray-700 mb-1">Descripción</label><textarea class="w-full border border-gray-300 rounded p-2.5" rows="2"></textarea></div>
+        </div>
+        <div class="p-6 border-t border-gray-100 bg-gray-50 flex justify-end space-x-3"><button class="px-4 py-2 bg-brand-600 text-white rounded">Guardar</button></div>
+    </div>
+</div>
+
+<!-- Modal: Servicio -->
+<div id="modalServicio" class="fixed inset-0 z-50 hidden">
+    <div class="absolute inset-0 bg-gray-900/50 backdrop-blur-sm" onclick="closeModal('modalServicio')"></div>
+    <div class="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 bg-white rounded-xl shadow-2xl w-full max-w-lg">
+        <div class="flex justify-between items-center p-6 border-b border-gray-100">
+            <h2 class="text-xl font-bold text-gray-800">Nuevo Servicio</h2>
+            <button onclick="closeModal('modalServicio')" class="text-gray-400"><i class="fa-solid fa-xmark"></i></button>
+        </div>
+        <div class="p-6 space-y-4">
+            <div>
+                <label class="block text-sm font-medium text-gray-700 mb-1">Categoría</label>
+                <select class="w-full border border-gray-300 rounded p-2.5"><option>Prótesis Fija</option></select>
+            </div>
+            <div><label class="block text-sm font-medium text-gray-700 mb-1">Nombre del Servicio</label><input type="text" class="w-full border border-gray-300 rounded p-2.5"></div>
+            <div class="grid grid-cols-2 gap-4">
+                <div><label class="block text-sm font-medium text-gray-700 mb-1">Precio ($)</label><input type="number" step="0.01" class="w-full border border-gray-300 rounded p-2.5"></div>
+                <div><label class="block text-sm font-medium text-gray-700 mb-1">Correlativo</label><input type="number" class="w-full border border-gray-300 rounded p-2.5"></div>
+                <div><label class="block text-sm font-medium text-gray-700 mb-1">Rango Min Piezas</label><input type="number" class="w-full border border-gray-300 rounded p-2.5"></div>
+                <div><label class="block text-sm font-medium text-gray-700 mb-1">Rango Max Piezas</label><input type="number" class="w-full border border-gray-300 rounded p-2.5"></div>
+            </div>
+        </div>
+        <div class="p-6 border-t border-gray-100 bg-gray-50 flex justify-end space-x-3"><button class="px-4 py-2 bg-brand-600 text-white rounded">Guardar</button></div>
+    </div>
+</div>
+
+            </div>
+        </main>
+    </div>
+    
+    <script>
+        function openModal(modalId) {
+            document.getElementById(modalId).classList.remove('hidden');
+        }
+        function closeModal(modalId) {
+            document.getElementById(modalId).classList.add('hidden');
+        }
+    </script>
+    
+</body>
+</html>

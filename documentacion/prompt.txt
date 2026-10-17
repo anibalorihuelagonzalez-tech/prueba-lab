@@ -1,0 +1,29 @@
+Estoy desarrollando una aplicación en Laravel para un laboratorio dental. El archivo CNSB_LAB_EER contiene el diagrama entidad-relación de la base de datos. Actualmente estoy en la fase de diseño del sistema y necesito que revises las tablas que ya tengo y agregues las que falten para que el proyecto sea un éxito.
+
+Contexto y funcionalidades clave:
+
+Sistema de trazabilidad tipo DHL:
+El sistema debe permitir ver en todo momento dónde están las prótesis dentales u otros productos del laboratorio. El laboratorio recibe y envía productos para su confección, y el sistema debe ser capaz de rastrear una prótesis y mostrar su trazabilidad completa. También debe contemplar casos en los que una prótesis o producto tenga un problema de confección y deba devolverse al laboratorio, mostrando claramente ese tipo de incidencias.
+
+Módulo de envíos:
+
+Una caja con X tramo tendrá un código de identificación único. Se le imprimirá una etiqueta con un código QR (nomenclatura aún por definir) que incluya al menos: origen, destino, cantidad de cajas, fecha y hora de creación del envío, y un número de orden o la fecha de envío.
+
+El sistema debe permitir cancelar un envío en caso de inconvenientes o redefinir la fecha del mismo.
+
+Dentro de la caja principal, cada producto o servicio tendrá una caja pequeña identificada también con un código QR que contendrá: nombre y apellido del paciente, cédula, un código único y el número de caso.
+
+Módulo de manufactura:
+Aquí trabajarán los técnicos dentales e indicarán el proceso en el que se encuentra cada prótesis. El proceso típico incluye: toma de impresión, prueba de rodete, enfilado e instalación (cuando ya se instala al paciente). El sistema debe mostrar este proceso de forma moderna y con animaciones. Lo mismo aplica para los envíos: debe visualizarse el tránsito de manera animada.
+
+Módulo de clínica/laboratorio:
+La clínica o el laboratorio deberá cargar los datos del paciente y su odontograma antes de enviarlo al laboratorio.
+
+Módulo de administración:
+Se encargará de la emisión de pre-facturas, notas de crédito, notas de entrega y del control de todos los ingresos monetarios.
+
+Módulo de recursos humanos:
+Debe cumplir con la legislación laboral venezolana.
+
+Aclaratoria importante:
+Todavía estoy en la fase de diseño. Solo necesito que revises las tablas que tengo actualmente y agregues las que faltan para que este programa sea un éxito. Quiero impresionar y demostrar que, si se me deja trabajando en el área de programación, puedo dar resultados mucho mejores que trabajando como contador o realizando tareas administrativas que para mí son absurdas.

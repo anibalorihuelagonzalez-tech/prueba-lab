@@ -1,0 +1,371 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gestión de Órdenes de Trabajo - CNSB Lab</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        brand: {
+                            50: '#f0f9ff',
+                            100: '#e0f2fe',
+                            400: '#38bdf8',
+                            500: '#0ea5e9',
+                            600: '#0284c7',
+                            900: '#0c4a6e',
+                        }
+                    },
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                    }
+                }
+            }
+        }
+    </script>
+</head>
+<body class="bg-gray-50 text-gray-800 font-sans antialiased relative">
+    <div class="flex h-screen overflow-hidden">
+        
+        <!-- Sidebar Navigation -->
+        <aside class="w-64 bg-white border-r border-gray-200 flex flex-col transition-all duration-300 shrink-0 z-20">
+    <div class="flex items-center justify-center h-16 border-b border-gray-100 shrink-0">
+        <i class="fa-solid fa-tooth text-2xl mr-3 text-brand-600"></i>
+        <span class="text-lg font-bold tracking-tight text-gray-900">CNSB LAB</span>
+    </div>
+    <nav class="flex-1 overflow-y-auto py-4">
+        <ul class="space-y-1">
+            <li>
+                <a href="ordenes.html" class="flex items-center px-6 py-2.5 mx-4 rounded-lg transition-colors bg-brand-50 text-brand-700 font-medium border-l-4 border-brand-500">
+                    <i class="fa-solid fa-clipboard-list w-5 mr-3 text-brand-600"></i> Órdenes de Trabajo
+                </a>
+            </li>
+            <li>
+                <a href="envios.html" class="flex items-center px-6 py-2.5 mx-4 rounded-lg transition-colors text-gray-600 hover:bg-gray-50 hover:text-gray-900 font-medium border-l-4 border-transparent">
+                    <i class="fa-solid fa-truck-fast w-5 mr-3 text-gray-400"></i> Control de Envíos
+                </a>
+            </li>
+            <li class="pt-5 pb-2 px-8 text-[10px] font-bold text-gray-400 uppercase tracking-widest">DIRECTORIOS</li>
+            <li>
+                <a href="clinicas.html" class="flex items-center px-6 py-2.5 mx-4 rounded-lg transition-colors text-gray-600 hover:bg-gray-50 hover:text-gray-900 font-medium border-l-4 border-transparent">
+                    <i class="fa-solid fa-hospital w-5 mr-3 text-gray-400"></i> Clínicas y Sedes
+                </a>
+            </li>
+            <li>
+                <a href="pacientes.html" class="flex items-center px-6 py-2.5 mx-4 rounded-lg transition-colors text-gray-600 hover:bg-gray-50 hover:text-gray-900 font-medium border-l-4 border-transparent">
+                    <i class="fa-solid fa-users w-5 mr-3 text-gray-400"></i> Pacientes
+                </a>
+            </li>
+            <li>
+                <a href="servicios.html" class="flex items-center px-6 py-2.5 mx-4 rounded-lg transition-colors text-gray-600 hover:bg-gray-50 hover:text-gray-900 font-medium border-l-4 border-transparent">
+                    <i class="fa-solid fa-list-check w-5 mr-3 text-gray-400"></i> Servicios y Tarifas
+                </a>
+            </li>
+            <li class="pt-5 pb-2 px-8 text-[10px] font-bold text-gray-400 uppercase tracking-widest">ADMINISTRACIÓN</li>
+            <li>
+                <a href="facturacion.html" class="flex items-center px-6 py-2.5 mx-4 rounded-lg transition-colors text-gray-600 hover:bg-gray-50 hover:text-gray-900 font-medium border-l-4 border-transparent">
+                    <i class="fa-solid fa-file-invoice-dollar w-5 mr-3 text-gray-400"></i> Facturación
+                </a>
+            </li>
+        </ul>
+    </nav>
+</aside>
+
+        <!-- Main Content Area -->
+        <main class="flex-1 flex flex-col overflow-hidden relative">
+            
+            <!-- Top Header -->
+            <header class="h-16 bg-white border-b border-gray-100 flex items-center justify-between px-6 shrink-0 z-10 shadow-sm">
+    <div class="flex items-center">
+        <button class="text-gray-500 hover:text-gray-700 focus:outline-none lg:hidden">
+            <i class="fa-solid fa-bars text-xl"></i>
+        </button>
+        <h1 class="ml-4 text-xl font-bold text-gray-800 tracking-tight">Gestión de Órdenes de Trabajo</h1>
+    </div>
+    <div class="flex items-center space-x-4">
+        <button class="text-gray-400 hover:text-brand-600 transition-colors relative">
+            <i class="fa-regular fa-bell text-xl"></i>
+            <span class="absolute top-0 right-0 -mt-1 -mr-1 flex h-3 w-3">
+                <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-red-400 opacity-75"></span>
+                <span class="relative inline-flex rounded-full h-3 w-3 bg-red-500"></span>
+            </span>
+        </button>
+        <div class="h-6 w-px bg-gray-200 mx-2"></div>
+        <div class="flex items-center">
+            <div class="w-8 h-8 rounded-full bg-brand-50 border border-brand-100 flex items-center justify-center text-brand-700 font-bold text-sm mr-2">DM</div>
+            <span class="text-sm font-medium text-gray-700 hidden md:block">Deiver Martínez</span>
+        </div>
+        <a href="index.html" class="text-gray-400 hover:text-red-500 transition-colors ml-4" title="Cerrar Sesión">
+            <i class="fa-solid fa-arrow-right-from-bracket text-xl"></i>
+        </a>
+    </div>
+</header>
+
+            <!-- Scrollable Content -->
+            <div class="flex-1 overflow-y-auto p-6 relative z-0">
+                
+<!-- Action Bar -->
+<div class="flex flex-col md:flex-row justify-between items-start md:items-center mb-6 space-y-4 md:space-y-0">
+    <div class="relative w-full md:w-96">
+        <span class="absolute inset-y-0 left-0 flex items-center pl-3 text-gray-400">
+            <i class="fa-solid fa-magnifying-glass"></i>
+        </span>
+        <input type="text" class="w-full border border-gray-300 rounded-lg pl-10 pr-4 py-2 focus:outline-none focus:ring-2 focus:ring-brand-500 focus:border-transparent" placeholder="Buscar por QR, Paciente o Clínica...">
+    </div>
+    <button onclick="openModal('modalNuevaOrden')" class="bg-gray-900 hover:bg-gray-800 text-white px-5 py-2 rounded-lg shadow-sm font-medium transition-colors flex items-center">
+        <i class="fa-solid fa-plus mr-2"></i> Nueva Orden
+    </button>
+</div>
+
+<!-- Metrics Cards -->
+<div class="grid grid-cols-1 md:grid-cols-4 gap-6 mb-6">
+    <div class="bg-white rounded-xl shadow-sm border border-gray-100 p-5">
+        <div class="flex justify-between items-center">
+            <div>
+                <p class="text-sm text-gray-500 font-medium mb-1">Total Activas</p>
+                <h3 class="text-2xl font-bold text-gray-800">142</h3>
+            </div>
+            <div class="w-10 h-10 rounded-full bg-blue-50 flex items-center justify-center text-brand-600">
+                <i class="fa-solid fa-clipboard-list"></i>
+            </div>
+        </div>
+    </div>
+    <div class="bg-white rounded-xl shadow-sm border border-gray-100 p-5">
+        <div class="flex justify-between items-center">
+            <div>
+                <p class="text-sm text-gray-500 font-medium mb-1">En Producción</p>
+                <h3 class="text-2xl font-bold text-gray-800">85</h3>
+            </div>
+            <div class="w-10 h-10 rounded-full bg-amber-50 flex items-center justify-center text-amber-500">
+                <i class="fa-solid fa-gear"></i>
+            </div>
+        </div>
+    </div>
+    <div class="bg-white rounded-xl shadow-sm border border-gray-100 p-5">
+        <div class="flex justify-between items-center">
+            <div>
+                <p class="text-sm text-gray-500 font-medium mb-1">En Tránsito</p>
+                <h3 class="text-2xl font-bold text-gray-800">24</h3>
+            </div>
+            <div class="w-10 h-10 rounded-full bg-indigo-50 flex items-center justify-center text-indigo-500">
+                <i class="fa-solid fa-truck"></i>
+            </div>
+        </div>
+    </div>
+    <div class="bg-white rounded-xl shadow-sm border border-gray-100 p-5">
+        <div class="flex justify-between items-center">
+            <div>
+                <p class="text-sm text-gray-500 font-medium mb-1">Finalizadas (Mes)</p>
+                <h3 class="text-2xl font-bold text-gray-800">312</h3>
+            </div>
+            <div class="w-10 h-10 rounded-full bg-green-50 flex items-center justify-center text-green-500">
+                <i class="fa-solid fa-check-double"></i>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Data Table -->
+<div class="bg-white rounded-xl shadow-sm border border-gray-100 overflow-hidden">
+    <div class="overflow-x-auto">
+        <table class="w-full whitespace-nowrap text-left text-sm">
+            <thead class="bg-gray-50 text-gray-600">
+                <tr>
+                    <th class="px-6 py-4 font-semibold border-b border-gray-200">Orden / QR</th>
+                    <th class="px-6 py-4 font-semibold border-b border-gray-200">Clínica (Sede)</th>
+                    <th class="px-6 py-4 font-semibold border-b border-gray-200">Paciente</th>
+                    <th class="px-6 py-4 font-semibold border-b border-gray-200">Servicio</th>
+                    <th class="px-6 py-4 font-semibold border-b border-gray-200">Fase Actual</th>
+                    <th class="px-6 py-4 font-semibold border-b border-gray-200 text-right">Acciones</th>
+                </tr>
+            </thead>
+            <tbody class="divide-y divide-gray-100">
+                <tr class="hover:bg-gray-50 transition-colors">
+                    <td class="px-6 py-4">
+                        <div class="font-medium text-gray-900">#OT-1045</div>
+                        <div class="text-xs text-gray-500 font-mono mt-1"><i class="fa-solid fa-qrcode mr-1"></i>QR-8A9B2C</div>
+                    </td>
+                    <td class="px-6 py-4">
+                        <div class="font-medium text-gray-800">Clínica Sonrisas</div>
+                        <div class="text-xs text-gray-500">Sede Principal</div>
+                    </td>
+                    <td class="px-6 py-4">
+                        <div class="font-medium text-gray-800">V-12345678</div>
+                        <div class="text-xs text-gray-500">Carlos Mendoza</div>
+                    </td>
+                    <td class="px-6 py-4 text-gray-600">Prótesis Total Acrílica</td>
+                    <td class="px-6 py-4">
+                        <span class="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium bg-amber-100 text-amber-800">
+                            Prueba de Rodete
+                        </span>
+                    </td>
+                    <td class="px-6 py-4 text-right">
+                        <button onclick="openModal('modalTrazabilidad')" class="text-gray-400 hover:text-brand-600 transition-colors mr-3" title="Cambiar Estatus / Trazabilidad">
+                            <i class="fa-solid fa-route"></i>
+                        </button>
+                    </td>
+                </tr>
+                <tr class="hover:bg-gray-50 transition-colors">
+                    <td class="px-6 py-4">
+                        <div class="font-medium text-gray-900">#OT-1038</div>
+                        <div class="text-xs text-gray-500 font-mono mt-1"><i class="fa-solid fa-qrcode mr-1"></i>QR-9P2Z5T</div>
+                    </td>
+                    <td class="px-6 py-4">
+                        <div class="font-medium text-gray-800">Clínica Sonrisas</div>
+                        <div class="text-xs text-gray-500">Sede Norte</div>
+                    </td>
+                    <td class="px-6 py-4">
+                        <div class="font-medium text-gray-800">V-15896324</div>
+                        <div class="text-xs text-gray-500">Ana Rodríguez</div>
+                    </td>
+                    <td class="px-6 py-4 text-gray-600">Carilla Estética</td>
+                    <td class="px-6 py-4">
+                        <span class="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium bg-green-100 text-green-800">
+                            Instalación
+                        </span>
+                    </td>
+                    <td class="px-6 py-4 text-right">
+                        <button onclick="openModal('modalTrazabilidad')" class="text-gray-400 hover:text-brand-600 transition-colors mr-3" title="Cambiar Estatus / Trazabilidad">
+                            <i class="fa-solid fa-route"></i>
+                        </button>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>
+
+<!-- Modal: Nueva Orden -->
+<div id="modalNuevaOrden" class="fixed inset-0 z-50 hidden">
+    <div class="absolute inset-0 bg-gray-900/50 backdrop-blur-sm" onclick="closeModal('modalNuevaOrden')"></div>
+    <div class="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 bg-white rounded-xl shadow-2xl w-full max-w-2xl max-h-[90vh] overflow-y-auto">
+        <div class="flex justify-between items-center p-6 border-b border-gray-100">
+            <h2 class="text-xl font-bold text-gray-800">Registrar Nueva Orden de Trabajo</h2>
+            <button onclick="closeModal('modalNuevaOrden')" class="text-gray-400 hover:text-gray-600"><i class="fa-solid fa-xmark text-xl"></i></button>
+        </div>
+        <div class="p-6">
+            <form class="space-y-4">
+                <div class="grid grid-cols-2 gap-4">
+                    <div>
+                        <label class="block text-sm font-medium text-gray-700 mb-1">Clínica</label>
+                        <select class="w-full border border-gray-300 rounded-lg p-2.5 focus:ring-2 focus:ring-brand-500 focus:border-brand-500">
+                            <option>Seleccione Clínica...</option>
+                            <option>Clínica Sonrisas C.A.</option>
+                            <option>OdontoPlus</option>
+                        </select>
+                    </div>
+                    <div>
+                        <label class="block text-sm font-medium text-gray-700 mb-1">Paciente (Cédula)</label>
+                        <div class="flex">
+                            <select class="border border-gray-300 rounded-l-lg p-2.5 bg-gray-50 focus:ring-2 focus:ring-brand-500 w-20"><option>V-</option><option>E-</option></select>
+                            <input type="text" class="flex-1 border-t border-b border-r border-gray-300 rounded-r-lg p-2.5 focus:ring-2 focus:ring-brand-500 focus:outline-none" placeholder="12345678">
+                        </div>
+                    </div>
+                </div>
+                <div>
+                    <label class="block text-sm font-medium text-gray-700 mb-1">Servicio Solicitado</label>
+                    <select class="w-full border border-gray-300 rounded-lg p-2.5 focus:ring-2 focus:ring-brand-500 focus:border-brand-500">
+                        <option>Seleccione Servicio...</option>
+                        <optgroup label="Prótesis Fija">
+                            <option>Corona Metal Porcelana</option>
+                            <option>Carilla Estética (Emax)</option>
+                        </optgroup>
+                    </select>
+                </div>
+                <div class="grid grid-cols-2 gap-4">
+                    <div>
+                        <label class="block text-sm font-medium text-gray-700 mb-1">Cant. Piezas Exacta</label>
+                        <input type="number" class="w-full border border-gray-300 rounded-lg p-2.5 focus:ring-2 focus:ring-brand-500 focus:outline-none" min="1" value="1">
+                    </div>
+                    <div>
+                        <label class="block text-sm font-medium text-gray-700 mb-1">Código QR Físico</label>
+                        <input type="text" class="w-full border border-gray-300 rounded-lg p-2.5 focus:ring-2 focus:ring-brand-500 focus:outline-none bg-gray-50 font-mono" placeholder="QR-XXXXXX">
+                    </div>
+                </div>
+            </form>
+        </div>
+        <div class="p-6 border-t border-gray-100 bg-gray-50 flex justify-end space-x-3 rounded-b-xl">
+            <button onclick="closeModal('modalNuevaOrden')" class="px-4 py-2 border border-gray-300 text-gray-700 rounded-lg hover:bg-gray-100 transition-colors">Cancelar</button>
+            <button class="px-4 py-2 bg-brand-600 text-white rounded-lg hover:bg-brand-700 transition-colors">Guardar Orden</button>
+        </div>
+    </div>
+</div>
+
+<!-- Modal: Trazabilidad / Cambio Estatus -->
+<div id="modalTrazabilidad" class="fixed inset-0 z-50 hidden">
+    <div class="absolute inset-0 bg-gray-900/50 backdrop-blur-sm" onclick="closeModal('modalTrazabilidad')"></div>
+    <div class="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 bg-white rounded-xl shadow-2xl w-full max-w-lg max-h-[90vh] overflow-y-auto">
+        <div class="flex justify-between items-center p-6 border-b border-gray-100">
+            <div>
+                <h2 class="text-xl font-bold text-gray-800">Actualizar Trazabilidad</h2>
+                <p class="text-sm text-gray-500 font-mono mt-1">#OT-1045 | QR-8A9B2C</p>
+            </div>
+            <button onclick="closeModal('modalTrazabilidad')" class="text-gray-400 hover:text-gray-600"><i class="fa-solid fa-xmark text-xl"></i></button>
+        </div>
+        <div class="p-6">
+            <form class="space-y-4">
+                <div>
+                    <label class="block text-sm font-medium text-gray-700 mb-1">Nueva Fase de Producción</label>
+                    <select class="w-full border border-gray-300 rounded-lg p-2.5 focus:ring-2 focus:ring-brand-500 focus:border-brand-500">
+                        <option value="TOMA DE IMPRESION">Toma de Impresión</option>
+                        <option value="PRUEBA DE RODETE" selected>Prueba de Rodete</option>
+                        <option value="ENFILADO">Enfilado</option>
+                        <option value="INSTALACION">Instalación</option>
+                    </select>
+                </div>
+                <div>
+                    <label class="block text-sm font-medium text-gray-700 mb-1">Ubicación Física Actual</label>
+                    <input type="text" class="w-full border border-gray-300 rounded-lg p-2.5 focus:ring-2 focus:ring-brand-500 focus:outline-none" value="Mesa 3 - Técnico Rodríguez">
+                </div>
+                <div>
+                    <label class="block text-sm font-medium text-gray-700 mb-1">Notas u Observaciones</label>
+                    <textarea class="w-full border border-gray-300 rounded-lg p-2.5 focus:ring-2 focus:ring-brand-500 focus:outline-none" rows="3" placeholder="Detalles de la fase..."></textarea>
+                </div>
+            </form>
+            
+            <!-- Histórico mini -->
+            <div class="mt-6">
+                <h4 class="text-xs font-bold text-gray-500 uppercase tracking-wider mb-3">Historial de Cambios</h4>
+                <div class="space-y-3 relative before:absolute before:inset-0 before:ml-2 before:-translate-x-px md:before:mx-auto md:before:translate-x-0 before:h-full before:w-0.5 before:bg-gradient-to-b before:from-transparent before:via-gray-200 before:to-transparent">
+                    <!-- Item 1 -->
+                    <div class="relative flex items-center justify-between md:justify-normal md:odd:flex-row-reverse group is-active">
+                        <div class="flex items-center justify-center w-5 h-5 rounded-full border-2 border-white bg-brand-500 text-white shadow shrink-0 md:order-1 md:group-odd:-translate-x-1/2 md:group-even:translate-x-1/2 z-10"></div>
+                        <div class="w-[calc(100%-2.5rem)] md:w-[calc(50%-1.25rem)] bg-gray-50 p-3 rounded-lg border border-gray-100 shadow-sm">
+                            <div class="flex items-center justify-between mb-1">
+                                <div class="font-bold text-gray-800 text-xs">Toma de Impresión</div>
+                                <time class="text-[10px] text-gray-500">01 Oct 09:30 AM</time>
+                            </div>
+                            <div class="text-[11px] text-gray-600">Recepción inicial. Ingreso a sistema.</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+        </div>
+        <div class="p-6 border-t border-gray-100 bg-gray-50 flex justify-end space-x-3 rounded-b-xl">
+            <button onclick="closeModal('modalTrazabilidad')" class="px-4 py-2 border border-gray-300 text-gray-700 rounded-lg hover:bg-gray-100 transition-colors">Cancelar</button>
+            <button class="px-4 py-2 bg-brand-600 text-white rounded-lg hover:bg-brand-700 transition-colors">Actualizar Estatus</button>
+        </div>
+    </div>
+</div>
+
+            </div>
+        </main>
+    </div>
+    
+    <script>
+        function openModal(modalId) {
+            document.getElementById(modalId).classList.remove('hidden');
+        }
+        function closeModal(modalId) {
+            document.getElementById(modalId).classList.add('hidden');
+        }
+    </script>
+    
+</body>
+</html>

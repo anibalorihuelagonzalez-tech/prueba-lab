@@ -1,0 +1,35 @@
+# =========================================================================
+# .htaccess  —  Enrutamiento + endurecimiento de seguridad
+# =========================================================================
+Options -Indexes
+RewriteEngine On
+
+# -------------------------------------------------------------------------
+# 0. 🔒 BLOQUEO DE ARCHIVOS SENSIBLES (CORRECCIÓN IMPORTANTE)
+#    Antes la regla "si el archivo existe, servirlo" permitía descargar desde el
+#    navegador cosas como /.env (¡con la clave de la base de datos!), /cnsb_lab.sql,
+#    /composer.json o el código de /app. Ahora todo eso responde 403 (prohibido).
+# -------------------------------------------------------------------------
+RewriteRule ^(\.env|\.git|\.gitignore|app/|vendor/|database/|documentacion/|tools/|composer\.json|composer\.lock|cnsb_lab\.sql|router\.php) - [F,L,NC]
+RewriteRule (^|/)\.(?!well-known) - [F,L]
+
+# 1. Redirigir internamente las solicitudes de assets y uploads a la carpeta public/
+RewriteRule ^assets/(.*)$ public/assets/$1 [L]
+RewriteRule ^uploads/(.*)$ public/uploads/$1 [L]
+
+# 2. Si el archivo existe fisicamente (en root o dentro de public/), servirlo directamente
+RewriteCond %{REQUEST_FILENAME} -f
+RewriteRule ^ - [L]
+
+# 3. Excluir extensiones de recursos estaticos de pasar por el router si no existen
+RewriteCond %{REQUEST_URI} !(\.png|\.jpg|\.webp|\.gif|\.jpeg|\.zip|\.css|\.svg|\.js|\.pdf|\.woff|\.woff2|\.ttf|\.eot|\.ico|\.json|\.map)$ [NC]
+
+# 4. Enrutar todo el trafico de la aplicacion a traves de routes.php
+RewriteRule ^(.*)$ routes.php [QSA,L]
+
+# Cabeceras de seguridad básicas (solo si mod_headers está activo)
+<IfModule mod_headers.c>
+    Header always set X-Content-Type-Options "nosniff"
+    Header always set X-Frame-Options "SAMEORIGIN"
+    Header always set Referrer-Policy "strict-origin-when-cross-origin"
+</IfModule>

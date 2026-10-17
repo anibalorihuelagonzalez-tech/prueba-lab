@@ -1,0 +1,12 @@
+# Credenciales y configuración local (NUNCA subir al repositorio)
+.env
+.env.*
+!.env.example
+
+# Dependencias y archivos locales
+/vendor/
+/.idea/
+/.vscode/
+*.log
+public/uploads/personal/*
+!public/uploads/personal/.gitkeep
